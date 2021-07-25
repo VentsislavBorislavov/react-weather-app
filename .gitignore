@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # api
-/src/weatherApi/index.js
+/src/weatherApi/
