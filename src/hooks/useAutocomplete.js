@@ -16,7 +16,7 @@ const useAutocomplete = (city) => {
 		},
 		[ city ]
 	);
-	return citySuggestions;
+	return [ citySuggestions, setCitySuggestions ];
 };
 
 export default useAutocomplete;
