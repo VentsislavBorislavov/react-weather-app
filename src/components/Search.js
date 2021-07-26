@@ -11,7 +11,7 @@ const Search = () => {
 		const cityInfo = {
 			key: city.Key,
 			name: city.LocalizedName,
-			country: city.Country.LocalizedName,
+			countryId: city.Country.ID,
 			administrativeArea: city.AdministrativeArea.LocalizedName
 		};
 
