@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import useTodayWeather from '../hooks/useCurrentWeather';
+import useTodayWeather from '../hooks/useTodayWeather';
 
 const CurrentWeather = () => {
 	const cityInfo = useSelector((state) => state.search);
