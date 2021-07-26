@@ -15,9 +15,8 @@ const Search = () => {
 			administrativeArea: city.AdministrativeArea.LocalizedName
 		};
 
-		setCity(cityInfo.name);
+		setCity('');
 		dispatch(setCityInfo(cityInfo));
-		setAutocomplete([]);
 	};
 	return (
 		<div className="search">
