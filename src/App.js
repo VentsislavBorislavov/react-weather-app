@@ -1,10 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import Search from './components/Search';
 
 function App() {
-	return <div className="App">APP</div>;
+	return (
+		<div className="App">
+			<Search />
+		</div>
+	);
 }
 
 export default App;
