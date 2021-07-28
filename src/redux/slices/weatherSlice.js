@@ -16,6 +16,6 @@ export const weatherSlice = createSlice({
 	}
 });
 
-export const { todayWeather } = weatherSlice.actions;
+export const { setTodayWeather } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

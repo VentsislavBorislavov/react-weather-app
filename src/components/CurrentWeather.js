@@ -4,7 +4,8 @@ import useTodayWeather from '../hooks/useTodayWeather';
 
 const CurrentWeather = () => {
 	const cityInfo = useSelector((state) => state.search);
-	const [ currentWeather, setCurrentWeather ] = useTodayWeather(cityInfo.key);
+	useTodayWeather(cityInfo.key);
+	const todayWeather = useSelector((state) => state.weather.todayWeather);
 
 	return (
 		<section className="current-weather">
@@ -12,7 +13,7 @@ const CurrentWeather = () => {
 				<i className="fas fa-map-marker-alt" />
 				{`${cityInfo.name}, ${cityInfo.countryId}`}
 			</h1> */}
-			{JSON.stringify(currentWeather)}
+			{JSON.stringify(todayWeather)}
 		</section>
 	);
 };

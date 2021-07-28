@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { weatherQuery, todayForecast } from '../weatherApi';
+import { useDispatch } from 'react-redux';
+import { setTodayWeather } from '../redux/slices/weatherSlice';
 import axios from 'axios';
 const useTodayWeather = (key) => {
-	const [ todayWeather, setTodayWeather ] = useState([]);
-
+	const dispatch = useDispatch();
 	const setData = async () => {
 		const currentCondQuery = weatherQuery(key);
 		const todayForecastQuery = todayForecast(key);
@@ -28,7 +29,7 @@ const useTodayWeather = (key) => {
 				max: data.Temperature.Maximum.Value
 			}
 		};
-		setTodayWeather(weather);
+		dispatch(setTodayWeather(weather));
 	};
 
 	useEffect(
@@ -37,7 +38,6 @@ const useTodayWeather = (key) => {
 		},
 		[ key ]
 	);
-	return [ todayWeather, setTodayWeather ];
 };
 
 export default useTodayWeather;
