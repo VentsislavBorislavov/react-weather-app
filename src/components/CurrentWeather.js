@@ -1,11 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import useTodayWeather from '../hooks/useTodayWeather';
+import { images } from '../data/icons';
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ todayWeather }) => {
 	const cityInfo = useSelector((state) => state.search);
-	useTodayWeather(cityInfo.key);
-	const todayWeather = useSelector((state) => state.weather.todayWeather);
 
 	return (
 		<section className="current-weather">
