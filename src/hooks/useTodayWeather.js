@@ -18,15 +18,15 @@ const useTodayWeather = (key) => {
 			text: currentCData.WeatherText,
 			icon: currentCData.WeatherIcon,
 			isDayTime: currentCData.IsDayTime,
-			temperature: currentCData.Temperature.Metric.Value,
+			temperature: Math.floor(currentCData.Temperature.Metric.Value),
 			epochDate: data.EpochDate,
 			sun: {
 				rise: data.Sun.EpochRise,
 				set: data.Sun.EpochSet
 			},
 			dayTemperature: {
-				min: data.Temperature.Minimum.Value,
-				max: data.Temperature.Maximum.Value
+				min: Math.floor(data.Temperature.Minimum.Value),
+				max: Math.floor(data.Temperature.Maximum.Value)
 			}
 		};
 		dispatch(setTodayWeather(weather));

@@ -9,11 +9,15 @@ const CurrentWeather = () => {
 
 	return (
 		<section className="current-weather">
-			{/* <h1>
+			<h1>
 				<i className="fas fa-map-marker-alt" />
 				{`${cityInfo.name}, ${cityInfo.countryId}`}
-			</h1> */}
-			{JSON.stringify(todayWeather)}
+			</h1>
+			<p>{todayWeather.temperature}&deg;</p>
+			<p>
+				{todayWeather.dayTemperature.max}&deg;/{todayWeather.dayTemperature.min}&deg;
+			</p>
+			<p>{todayWeather.text}</p>
 		</section>
 	);
 };
