@@ -12,7 +12,6 @@ function App() {
 	useTodayWeather(cityInfo.key);
 	useHourlyForecast(cityInfo.key);
 	const { todayWeather, hourlyForecast } = useSelector((state) => state.weather);
-
 	return (
 		<div className="App">
 			<Search />

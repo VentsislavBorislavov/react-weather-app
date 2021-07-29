@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	todayWeather: {},
-	tenDayForecast: {},
-	hourlyForecast: {}
+	tenDayForecast: [],
+	hourlyForecast: []
 };
 
 export const weatherSlice = createSlice({
