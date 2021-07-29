@@ -11,13 +11,12 @@ const Search = () => {
 		const cityInfo = {
 			key: city.Key,
 			name: city.LocalizedName,
-			country: city.Country.LocalizedName,
+			countryId: city.Country.ID,
 			administrativeArea: city.AdministrativeArea.LocalizedName
 		};
 
-		setCity(cityInfo.name);
+		setCity('');
 		dispatch(setCityInfo(cityInfo));
-		setAutocomplete([]);
 	};
 	return (
 		<div className="search">
