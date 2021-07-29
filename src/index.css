@@ -5,6 +5,15 @@ body {
   background-image: radial-gradient(circle, #e1cf52, #8fd372, #2ecca3, #00beca, #29aad8);
 }
 
+.temperature {
+  position: relative;
+}
+
+.temperature::after {
+  position: absolute;
+  content: "°";
+}
+
 .search {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 25px;
@@ -100,26 +109,63 @@ body {
 .current-weather .current-temp {
   font-size: 4rem;
   line-height: 50px;
-  position: relative;
 }
 
-.current-weather .current-temp::after {
-  content: "°";
-  position: absolute;
-}
-
-.current-weather .daily-temp span {
-  position: relative;
+.current-weather .daily-temp .temperature {
   padding: 5px;
-}
-
-.current-weather .daily-temp span::after {
-  position: absolute;
-  content: "°";
 }
 
 .current-weather .condition {
   font-size: 2rem;
   margin: 10px 0 25px 0;
+}
+
+.hourly-forecast {
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  margin: 20px auto;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.hourly-forecast h2 {
+  font-size: 1.3rem;
+}
+
+.hourly-forecast .display-forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.hourly-forecast .display-forecast::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-forecast .display-forecast .forecast p {
+  margin: 0;
+}
+
+.hourly-forecast .display-forecast .scroll {
+  position: absolute;
+  height: 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.hourly-forecast .display-forecast .scroll-left {
+  left: 0;
+}
+
+.hourly-forecast .display-forecast .scroll-right {
+  right: 0;
 }
 /*# sourceMappingURL=index.css.map */
