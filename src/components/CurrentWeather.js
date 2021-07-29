@@ -10,10 +10,10 @@ const CurrentWeather = ({ todayWeather }) => {
 				<span>{`${cityInfo.name}, ${cityInfo.countryId}`}</span>
 			</h1>
 			<img src={images[`${todayWeather.icon}-s.png`].default} alt="weather icon" />
-			<p className="current-temp">{todayWeather.temperature}</p>
+			<p className="current-temp temperature">{todayWeather.temperature}</p>
 			<p className="daily-temp">
-				<span>{todayWeather.dayTemperature.max}</span> /
-				<span>{todayWeather.dayTemperature.min}</span>
+				<span className="temperature">{todayWeather.dayTemperature.max}</span> /
+				<span className="temperature">{todayWeather.dayTemperature.min}</span>
 			</p>
 			<p className="condition">{todayWeather.text}</p>
 		</section>
