@@ -10,7 +10,7 @@ const useHourlyForecast = (cityKey) => {
 		if (!cityKey) return;
 		const link = hourlyForecastLink(cityKey);
 		const result = await axios(link);
-		const data = Object.assign({}, result.data);
+		const data = [ ...result.data ];
 		dispatch(setHourlyForecast(data));
 	};
 
