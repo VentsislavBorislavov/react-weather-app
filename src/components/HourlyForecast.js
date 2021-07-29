@@ -2,13 +2,23 @@ import { images } from '../data/icons';
 import { useRef } from 'react';
 
 const HourlyForecast = ({ hourlyForecast }) => {
+	const dForecastRef = useRef(null);
+
+	const scrollLeft = () => {
+		dForecastRef.current.scrollLeft -= 75;
+	};
+
+	const scrollRight = () => {
+		dForecastRef.current.scrollLeft += 75;
+	};
+
 	return (
 		<section className="hourly-forecast">
 			<h2>12 Hour Forecast</h2>
-			<div className="display-forecast">
-				<button className="scroll scroll-left">
-					<i className="fas fa-arrow-left" />
-				</button>
+			<button className="scroll scroll-left" onClick={scrollLeft}>
+				<i className="fas fa-arrow-left" />
+			</button>
+			<div className="display-forecast" ref={dForecastRef}>
 				{hourlyForecast.map((fcast) => (
 					<div key={fcast.EpochDateTime} className="forecast">
 						<img src={images[`${fcast.WeatherIcon}-s.png`].default} alt="weather icon" />
@@ -16,10 +26,10 @@ const HourlyForecast = ({ hourlyForecast }) => {
 						<p className="temperature">{Math.floor(fcast.Temperature.Value)}</p>
 					</div>
 				))}
-				<button className="scroll scroll-right">
-					<i className="fas fa-arrow-right" />
-				</button>
 			</div>
+			<button className="scroll scroll-right" onClick={scrollRight}>
+				<i className="fas fa-arrow-right" />
+			</button>
 		</section>
 	);
 };
