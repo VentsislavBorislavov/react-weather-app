@@ -6,6 +6,7 @@ import axios from 'axios';
 const useTodayWeather = (key) => {
 	const dispatch = useDispatch();
 	const setData = async () => {
+		if (!key) return;
 		const currentCondQuery = weatherQuery(key);
 		const todayForecastQuery = todayForecast(key);
 		let [ currentCondRes, todayFcastRes ] = await Promise.all([

@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import { images } from '../data/icons';
-import icon1 from '../images/icons/1-s.png';
 
 const CurrentWeather = ({ todayWeather }) => {
 	const cityInfo = useSelector((state) => state.search);
@@ -9,14 +7,15 @@ const CurrentWeather = ({ todayWeather }) => {
 		<section className="current-weather">
 			<h1>
 				<i className="fas fa-map-marker-alt" />
-				{`${cityInfo.name}, ${cityInfo.countryId}`}
+				<span>{`${cityInfo.name}, ${cityInfo.countryId}`}</span>
 			</h1>
 			<img src={images[`${todayWeather.icon}-s.png`].default} alt="weather icon" />
-			<p>{todayWeather.temperature}&deg;</p>
-			<p>
-				{todayWeather.dayTemperature.max}&deg;/{todayWeather.dayTemperature.min}&deg;
+			<p className="current-temp">{todayWeather.temperature}</p>
+			<p className="daily-temp">
+				<span>{todayWeather.dayTemperature.max}</span> /** */
+				<span>{todayWeather.dayTemperature.min}</span>
 			</p>
-			<p>{todayWeather.text}</p>
+			<p className="condition">{todayWeather.text}</p>
 		</section>
 	);
 };
