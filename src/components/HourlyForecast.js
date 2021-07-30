@@ -1,4 +1,4 @@
-import { images } from '../data/icons';
+import getIcon from '../data/icons';
 import { useRef } from 'react';
 
 const HourlyForecast = ({ hourlyForecast }) => {
@@ -21,7 +21,7 @@ const HourlyForecast = ({ hourlyForecast }) => {
 			<div className="display-forecast" ref={dForecastRef}>
 				{hourlyForecast.map((fcast) => (
 					<div key={fcast.EpochDateTime} className="forecast">
-						<img src={images[`${fcast.WeatherIcon}-s.png`].default} alt="weather icon" />
+						<img src={getIcon(fcast.WeatherIcon)} alt="weather icon" />
 						<p className="hour">{hourString(fcast.EpochDateTime)}</p>
 						<p className="temperature">{Math.floor(fcast.Temperature.Value)}</p>
 					</div>

@@ -6,5 +6,10 @@ function importAll(r) {
 	return images;
 }
 
-export const images = importAll(require.context('../images/icons', false, /\.png$/));
-export default function() {}
+export const icons = importAll(require.context('../images/icons', false, /\.png$/));
+
+const getIcon = (iconNum) => {
+	return icons[`${iconNum}-s.png`].default;
+};
+
+export default getIcon;
