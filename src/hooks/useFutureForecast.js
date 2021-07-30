@@ -1,17 +1,15 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setHourlyForecast } from '../redux/slices/weatherSlice';
-import { hourlyForecastLink } from '../weatherApi';
 
-const useHourlyForecast = (cityKey) => {
+const useFutureForecast = (cityKey, linkFunction, action) => {
 	const dispatch = useDispatch();
 	const setHourlyData = async () => {
 		if (!cityKey) return;
-		const link = hourlyForecastLink(cityKey);
+		const link = linkFunction(cityKey);
 		const result = await axios(link);
 		const data = [ ...result.data ];
-		dispatch(setHourlyForecast(data));
+		dispatch(action(data));
 	};
 
 	useEffect(
@@ -22,4 +20,4 @@ const useHourlyForecast = (cityKey) => {
 	);
 };
 
-export default useHourlyForecast;
+export default useFutureForecast;

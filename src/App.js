@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css';
-import CurrentWeather from './components/CurrentWeather';
-import Search from './components/Search';
 import { useSelector } from 'react-redux';
 import useTodayWeather from './hooks/useTodayWeather';
-import useHourlyForecast from './hooks/useHourlyForecast';
+import useFutureForecast from './hooks/useFutureForecast';
+import { setHourlyForecast } from './redux/slices/weatherSlice';
+import { hourlyForecastLink } from './weatherApi';
+import Search from './components/Search';
+import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/HourlyForecast';
 
 function App() {
 	const cityInfo = useSelector((state) => state.search);
 	useTodayWeather(cityInfo.key);
-	useHourlyForecast(cityInfo.key);
+	useFutureForecast(cityInfo.key, hourlyForecastLink, setHourlyForecast);
 	const { todayWeather, hourlyForecast } = useSelector((state) => state.weather);
 	return (
 		<div className="App">
