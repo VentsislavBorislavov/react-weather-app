@@ -6,3 +6,5 @@ export const todayForecast = (cityKey) =>
 	`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${apiKey}&details=true&metric=true`;
 export const hourlyForecastLink = (cityKey) =>
 	`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${apiKey}&metric=true`;
+export const dailyForecastLink = (cityKey) =>
+	`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${apiKey}&metric=true`;
