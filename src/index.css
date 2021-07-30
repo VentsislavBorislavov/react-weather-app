@@ -14,6 +14,11 @@ body {
   content: "°";
 }
 
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 .search {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 25px;
@@ -131,10 +136,6 @@ body {
   position: relative;
 }
 
-.hourly-forecast h2 {
-  font-size: 1.3rem;
-}
-
 .hourly-forecast .display-forecast {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,5 +169,40 @@ body {
 
 .hourly-forecast .scroll-right {
   right: 0;
+}
+
+.daily-forecast {
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  margin: auto;
+  color: white;
+  padding: 20px 0;
+}
+
+.daily-forecast .days {
+  width: 90%;
+  margin: auto;
+}
+
+.daily-forecast .days .forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 0;
+}
+
+.daily-forecast .days .day-temperature span {
+  padding: 10px;
+}
+
+.daily-forecast .days .forecast + .forecast {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 /*# sourceMappingURL=index.css.map */
