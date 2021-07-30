@@ -10,7 +10,7 @@ const useDailyForecast = (cityKey) => {
 		if (!cityKey) return;
 		const link = dailyForecastLink(cityKey);
 		const result = await axios(link);
-		const data = [ ...result.data.DailyForecasts ].slice(1);
+		const data = [ ...result.data.DailyForecasts ];
 		dispatch(setDailyForecast(data));
 	};
 
