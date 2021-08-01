@@ -3,6 +3,7 @@
 body {
   font-family: 'Hind Siliguri', sans-serif;
   background: rgba(0, 0, 0, 0.1);
+  margin: 0;
 }
 
 .temperature {
@@ -233,18 +234,16 @@ h2 {
   width: 200px;
   height: 200px;
   position: absolute;
-  border: 4px solid white;
+  border: 3px solid white;
   border-radius: 50%;
   padding: 0px;
   top: calc(50% - 28px);
   border-right-color: rgba(255, 255, 255, 0.1);
   border-bottom-color: rgba(255, 255, 255, 0.1);
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-  -webkit-transition: -webkit-transform 100ms ease;
-  transition: -webkit-transform 100ms ease;
-  transition: transform 100ms ease;
-  transition: transform 100ms ease, -webkit-transform 100ms ease;
+  -webkit-transition: -webkit-transform 1500ms ease;
+  transition: -webkit-transform 1500ms ease;
+  transition: transform 1500ms ease;
+  transition: transform 1500ms ease, -webkit-transform 1500ms ease;
 }
 
 .sun-position .info .sun {
