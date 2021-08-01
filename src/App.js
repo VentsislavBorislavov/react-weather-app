@@ -7,6 +7,7 @@ import Search from './components/Search';
 import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/HourlyForecast';
 import DailyForecast from './components/DailyForecast';
+import SunPosition from './components/SunPosition';
 
 function App() {
 	const cityInfo = useSelector((state) => state.search);
@@ -19,6 +20,7 @@ function App() {
 			{Object.keys(todayWeather).length > 0 && <CurrentWeather todayWeather={todayWeather} />}
 			{Object.keys(hourlyForecast).length > 0 && <HourlyForecast hourlyForecast={hourlyForecast} />}
 			<DailyForecast />
+			<SunPosition />
 		</div>
 	);
 }

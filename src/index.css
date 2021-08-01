@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap");
 body {
   font-family: 'Hind Siliguri', sans-serif;
-  background-image: radial-gradient(circle, #e1cf52, #8fd372, #2ecca3, #00beca, #29aad8);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .temperature {
@@ -17,6 +17,7 @@ body {
 h2 {
   text-align: center;
   font-size: 1.3rem;
+  color: white;
 }
 
 .search {
@@ -204,5 +205,68 @@ h2 {
 
 .daily-forecast .days .forecast + .forecast {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sun-position {
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: auto;
+  border-radius: 30px;
+}
+
+.sun-position .info .container {
+  height: 150px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  border-bottom: 1px solid white;
+}
+
+.sun-position .info .arches {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: 4px solid white;
+  border-radius: 50%;
+  padding: 0px;
+  top: calc(50% - 28px);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  -webkit-transition: -webkit-transform 100ms ease;
+  transition: -webkit-transform 100ms ease;
+  transition: transform 100ms ease;
+  transition: transform 100ms ease, -webkit-transform 100ms ease;
+}
+
+.sun-position .info .sun {
+  position: absolute;
+  color: #ffbb00;
+  font-size: 25px;
+  top: 20px;
+  right: 14px;
+}
+
+.sun-position .info .time {
+  width: 250px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=index.css.map */

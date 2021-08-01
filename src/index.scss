@@ -3,7 +3,7 @@ $cards-color: rgba($color: #000000, $alpha: .7);
 
 body {
 	font-family: 'Hind Siliguri', sans-serif;
-	background-image: radial-gradient(circle, #e1cf52, #8fd372, #2ecca3, #00beca, #29aad8);
+	background: rgba($color: #000000, $alpha: .1);
 }
 
 .temperature {
@@ -17,6 +17,7 @@ body {
 h2 {
 	text-align: center;
 	font-size: 1.3rem;
+	color: white;
 }
 
 .search {
@@ -181,6 +182,54 @@ h2 {
 
 		.forecast + .forecast {
 			border-top: 1px solid rgba($color: #ffffff, $alpha: .2);
+		}
+	}
+}
+
+.sun-position {
+	width: 90%;
+	background-color: $cards-color;
+	margin: auto;
+	border-radius: 30px;
+	.info {
+		.container {
+			height: 150px;
+			width: 300px;
+			display: flex;
+			justify-content: center;
+			position: relative;
+			overflow: hidden;
+			margin: auto;
+			border-bottom: 1px solid white;
+		}
+
+		.arches {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			border: 4px solid white;
+			border-radius: 50%;
+			padding: 0px;
+			top: calc(50% - 28px);
+			border-right-color: rgba(255, 255, 255, 0.1);
+			border-bottom-color: rgba(255, 255, 255, 0.1);
+			transform: rotate(-135deg);
+			transition: transform 100ms ease;
+		}
+		.sun {
+			position: absolute;
+			color: rgb(255, 187, 0);
+			font-size: 25px;
+			top: 20px;
+			right: 14px;
+		}
+		.time {
+			width: 250px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
 		}
 	}
 }
