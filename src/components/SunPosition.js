@@ -1,8 +1,5 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-// epochDate
-// sun.rise
-// sun.set
 const SunPosition = () => {
 	const todayWeather = useSelector((state) => state.weather.todayWeather);
 
@@ -16,9 +13,8 @@ const SunPosition = () => {
 							<div
 								className="arches"
 								style={{
-									transform: `translate(${calculateSunPosition(
+									transform: `rotate(${calculateSunPosition(
 										todayWeather.sun.rise,
-										todayWeather.epochDate,
 										todayWeather.sun.set
 									)}deg)`
 								}}
@@ -37,12 +33,16 @@ const SunPosition = () => {
 	);
 };
 
-const calculateSunPosition = (start, current, end) => {
+const calculateSunPosition = (start, end) => {
 	const archRange = 180;
 	const endOfArch = 45;
+	const date = new Date();
+	const current = date.getTime() / 1000;
 	if (current - start < 0 || end - current < 0) {
+		console.log('yo');
 		return endOfArch;
 	}
+
 	const range = end - start;
 	const placeInRange = current - start;
 	const percentageOfRange = placeInRange / range;
@@ -50,7 +50,7 @@ const calculateSunPosition = (start, current, end) => {
 	const thingToRemoveFromRange = endOfArch + percentageToArch;
 	const finalResultForCss = thingToRemoveFromRange - archRange;
 
-	return Math.floor(finalResultForCss);
+	return finalResultForCss;
 };
 
 const getTime = (epochDate) => {
