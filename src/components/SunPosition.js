@@ -13,10 +13,10 @@ const SunPosition = () => {
 		threshold: 0.9
 	});
 
-	const rotateArch = (element, rotation) => {
+	const rotateArch = (element, deg) => {
 		gsap.to(element, {
-			transform: `rotate(${rotation.deg}deg)`,
-			duration: rotation.animDur,
+			transform: `rotate(${deg}deg)`,
+			duration: 1.5,
 			ease: 'power1.out'
 		});
 	};
@@ -33,37 +33,32 @@ const SunPosition = () => {
 		: revertRotateArch('.arches');
 
 	return (
-		<Fragment>
-			{Object.keys(todayWeather).length > 0 && (
-				<section className="sun-position" ref={sunPosRef}>
-					<h2>Sun Position</h2>
-					<div className="info">
-						<div className="container">
-							<div className="arches">
-								<i className="fas fa-sun sun" />
-							</div>
-						</div>
-						<div className="time">
-							<span className="rise">{getTime(todayWeather.sun.rise)}</span>
-							<span className="set">{getTime(todayWeather.sun.set)}</span>
-						</div>
+		<section className="sun-position" ref={sunPosRef}>
+			<h2>Sun Position</h2>
+			<div className="info">
+				<div className="container">
+					<div className="arches">
+						<i className="fas fa-sun sun" />
 					</div>
-				</section>
-			)}
-		</Fragment>
+				</div>
+				<div className="time">
+					<span className="rise">{getTime(todayWeather.sun.rise)}</span>
+					<span className="set">{getTime(todayWeather.sun.set)}</span>
+				</div>
+			</div>
+		</section>
 	);
 };
 
 const calculateSunPosition = (start, end) => {
 	const archRange = 180;
 	const endOfArch = 45;
-	const duration = 1.5;
 	const date = new Date();
 	const startDate = new Date(start) / 1000;
 	const endDate = new Date(end) / 1000;
 	const current = date.getTime() / 1000;
 	if (current - startDate < 0 || endDate - current < 0) {
-		return { deg: endOfArch, animDur: duration };
+		return endOfArch;
 	}
 	const range = endDate - startDate;
 	const placeInRange = current - startDate;
@@ -71,9 +66,8 @@ const calculateSunPosition = (start, end) => {
 	const percentageToArch = archRange * percentageOfRange;
 	const thingToRemoveFromRange = endOfArch + percentageToArch;
 	const deg = thingToRemoveFromRange - archRange;
-	const animDur = duration * percentageOfRange;
 
-	return { deg, animDur };
+	return deg;
 };
 
 export default SunPosition;

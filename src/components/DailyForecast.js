@@ -6,25 +6,21 @@ import { formatDate } from '../data/time';
 const DailyForecast = () => {
 	const { dailyForecast } = useSelector((state) => state.weather);
 	return (
-		<Fragment>
-			{dailyForecast.length > 0 && (
-				<section className="daily-forecast">
-					<h2>5 Day Forecast</h2>
-					<div className="days">
-						{dailyForecast.map((fcast) => (
-							<div key={fcast.EpochDate} className="forecast">
-								<span className="date">{formatDate(fcast.EpochDate)}</span>
-								<img src={getIcon(fcast.Day.Icon)} alt="weather icon" />
-								<div className="day-temperature">
-									<span className="temperature">{Math.floor(fcast.Temperature.Minimum.Value)}</span>/
-									<span className="temperature">{Math.floor(fcast.Temperature.Maximum.Value)}</span>
-								</div>
-							</div>
-						))}
+		<section className="daily-forecast">
+			<h2>5 Day Forecast</h2>
+			<div className="days">
+				{dailyForecast.map((fcast) => (
+					<div key={fcast.EpochDate} className="forecast">
+						<span className="date">{formatDate(fcast.EpochDate)}</span>
+						<img src={getIcon(fcast.Day.Icon)} alt="weather icon" />
+						<div className="day-temperature">
+							<span className="temperature">{Math.floor(fcast.Temperature.Minimum.Value)}</span>/
+							<span className="temperature">{Math.floor(fcast.Temperature.Maximum.Value)}</span>
+						</div>
 					</div>
-				</section>
-			)}
-		</Fragment>
+				))}
+			</div>
+		</section>
 	);
 };
 
