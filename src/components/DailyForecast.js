@@ -1,12 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Fragment } from 'react';
-import useDailyForecast from '../hooks/useDailyForecast';
 import getIcon from '../data/icons';
 import { formatDate } from '../data/time';
 
 const DailyForecast = () => {
-	const cityInfo = useSelector((state) => state.search);
-	useDailyForecast(cityInfo.key);
 	const { dailyForecast } = useSelector((state) => state.weather);
 	return (
 		<Fragment>

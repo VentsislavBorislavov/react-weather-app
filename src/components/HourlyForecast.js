@@ -1,9 +1,11 @@
 import getIcon from '../data/icons';
+import { useSelector } from 'react-redux';
 import { useRef } from 'react';
 import { getTime } from '../data/time';
 
-const HourlyForecast = ({ hourlyForecast }) => {
+const HourlyForecast = () => {
 	const dForecastRef = useRef(null);
+	const { hourlyForecast } = useSelector((state) => state.weather);
 
 	const scrollLeft = () => {
 		dForecastRef.current.scrollLeft -= 75;

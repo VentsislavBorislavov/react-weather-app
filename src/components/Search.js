@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import { setCityInfo } from '../redux/slices/searchSlice';
 

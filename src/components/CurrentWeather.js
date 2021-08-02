@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import getIcon from '../data/icons';
 
-const CurrentWeather = ({ todayWeather }) => {
+const CurrentWeather = () => {
 	const cityInfo = useSelector((state) => state.search);
+	const { todayWeather } = useSelector((state) => state.weather);
 	return (
 		<section className="current-weather">
 			<h1>
