@@ -1,4 +1,4 @@
-export const apiKey = 'I4pGlQnueYSOQ6YsVMl9ALgGjzMWlqmd';
+export const apiKey = 'tTqmkosCOmKUmwUSc0ZN5oLRy0WIksXa';
 export const searchQuery = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=`;
 export const weatherQuery = (cityKey) =>
 	`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apiKey}`;

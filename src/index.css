@@ -27,6 +27,7 @@ h2 {
   width: 90%;
   max-width: 800px;
   margin: 30px auto;
+  position: relative;
 }
 
 .search .search-box {
@@ -51,11 +52,14 @@ h2 {
   color: white;
 }
 
-.search .separator {
-  height: 2px;
-  width: 90%;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0.548);
+.search .autocomp-container {
+  position: absolute;
+  z-index: 10;
+  background-color: #585858;
+  border-radius: 30px;
+  top: 54px;
+  left: 0;
+  right: 0;
 }
 
 .search .autocomplete {
@@ -82,7 +86,7 @@ h2 {
 }
 
 .search .autocomplete:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .current-weather {

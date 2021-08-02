@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import { setCityInfo } from '../redux/slices/searchSlice';
 
 const Search = () => {
 	const [ city, setCity ] = useState('');
 	const [ autocomplete, setAutocomplete ] = useAutocomplete(city);
+
 	const dispatch = useDispatch();
 	const chooseCity = (city) => {
 		const cityInfo = {
@@ -24,15 +25,16 @@ const Search = () => {
 				<i className="fas fa-search-location" />
 				<input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Search City" />
 			</div>
-			{autocomplete && <div className="separator" />}
-			{autocomplete &&
-				autocomplete.map((place) => (
-					<div key={place.Key} onClick={() => chooseCity(place)} className="autocomplete">
-						<span className="name">{place.LocalizedName}</span>
-						<span className="info">{`${place.AdministrativeArea.LocalizedName}, ${place.Country
-							.LocalizedName}`}</span>
-					</div>
-				))}
+			<div className="autocomp-container">
+				{autocomplete &&
+					autocomplete.map((place) => (
+						<div key={place.Key} onClick={() => chooseCity(place)} className="autocomplete">
+							<span className="name">{place.LocalizedName}</span>
+							<span className="info">{`${place.AdministrativeArea.LocalizedName}, ${place.Country
+								.LocalizedName}`}</span>
+						</div>
+					))}
+			</div>
 		</div>
 	);
 };

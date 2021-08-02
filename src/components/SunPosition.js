@@ -63,7 +63,7 @@ const calculateSunPosition = (start, end) => {
 	const endDate = new Date(end) / 1000;
 	const current = date.getTime() / 1000;
 	if (current - startDate < 0 || endDate - current < 0) {
-		return { deg: archRange, animDur: duration };
+		return { deg: endOfArch, animDur: duration };
 	}
 	const range = endDate - startDate;
 	const placeInRange = current - startDate;

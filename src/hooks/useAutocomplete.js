@@ -7,7 +7,7 @@ const useAutocomplete = (city) => {
 	const setData = async () => {
 		const finalQ = searchQuery + city;
 		const result = await axios(finalQ);
-		setCitySuggestions(result.data);
+		setCitySuggestions(result.data.slice(0, 5));
 	};
 
 	useEffect(

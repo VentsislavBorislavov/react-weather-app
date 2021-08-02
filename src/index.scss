@@ -27,6 +27,7 @@ h2 {
 	width: 90%;
 	max-width: 800px;
 	margin: 30px auto;
+	position: relative;
 
 	.search-box {
 		padding: 10px;
@@ -48,11 +49,14 @@ h2 {
 		}
 	}
 
-	.separator {
-		height: 2px;
-		width: 90%;
-		margin: auto;
-		background-color: rgba(255, 255, 255, 0.548);
+	.autocomp-container {
+		position: absolute;
+		z-index: 10;
+		background-color: rgb(88, 88, 88);
+		border-radius: 30px;
+		top: 54px;
+		left: 0;
+		right: 0;
 	}
 
 	.autocomplete {
@@ -72,7 +76,7 @@ h2 {
 		}
 
 		&:hover {
-			background-color: rgba($color: #000000, $alpha: .2);
+			background-color: rgba($color: white, $alpha: .2);
 		}
 	}
 }
