@@ -20,10 +20,10 @@ const useTodayWeather = (key) => {
 			icon: currentCData.WeatherIcon,
 			isDayTime: currentCData.IsDayTime,
 			temperature: Math.floor(currentCData.Temperature.Metric.Value),
-			epochDate: data.EpochDate,
+			date: data.Date,
 			sun: {
-				rise: data.Sun.EpochRise,
-				set: data.Sun.EpochSet
+				rise: data.Sun.Rise,
+				set: data.Sun.Set
 			},
 			dayTemperature: {
 				min: Math.floor(data.Temperature.Minimum.Value),

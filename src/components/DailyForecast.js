@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Fragment } from 'react';
 import useDailyForecast from '../hooks/useDailyForecast';
 import getIcon from '../data/icons';
+import { formatDate } from '../data/time';
 
 const DailyForecast = () => {
 	const cityInfo = useSelector((state) => state.search);
@@ -28,17 +29,6 @@ const DailyForecast = () => {
 			)}
 		</Fragment>
 	);
-};
-
-const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Sep', 'Nov', 'Dec' ];
-
-const formatDate = (epochTime) => {
-	const date = new Date(epochTime * 1000);
-	let day = date.getDay();
-	let month = date.getMonth();
-	let monthDate = date.getDate();
-	return `${days[day]}, ${months[month]} ${monthDate}`;
 };
 
 export default DailyForecast;

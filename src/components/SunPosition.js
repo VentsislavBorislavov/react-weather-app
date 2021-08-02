@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { getTime } from '../data/time';
 const SunPosition = () => {
 	const todayWeather = useSelector((state) => state.weather.todayWeather);
 
@@ -37,25 +38,20 @@ const calculateSunPosition = (start, end) => {
 	const archRange = 180;
 	const endOfArch = 45;
 	const date = new Date();
+	const startDate = new Date(start) / 1000;
+	const endDate = new Date(end) / 1000;
 	const current = date.getTime() / 1000;
-	if (current - start < 0 || end - current < 0) {
-		console.log('yo');
+	if (current - startDate < 0 || endDate - current < 0) {
 		return endOfArch;
 	}
-
-	const range = end - start;
-	const placeInRange = current - start;
+	const range = endDate - startDate;
+	const placeInRange = current - startDate;
 	const percentageOfRange = placeInRange / range;
 	const percentageToArch = archRange * percentageOfRange;
 	const thingToRemoveFromRange = endOfArch + percentageToArch;
 	const finalResultForCss = thingToRemoveFromRange - archRange;
 
 	return finalResultForCss;
-};
-
-const getTime = (epochDate) => {
-	const date = new Date(epochDate * 1000);
-	return `${date.getHours()}:${date.getMinutes()}`;
 };
 
 export default SunPosition;

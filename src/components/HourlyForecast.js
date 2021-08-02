@@ -1,5 +1,6 @@
 import getIcon from '../data/icons';
 import { useRef } from 'react';
+import { getTime } from '../data/time';
 
 const HourlyForecast = ({ hourlyForecast }) => {
 	const dForecastRef = useRef(null);
@@ -20,9 +21,9 @@ const HourlyForecast = ({ hourlyForecast }) => {
 			</button>
 			<div className="display-forecast" ref={dForecastRef}>
 				{hourlyForecast.map((fcast) => (
-					<div key={fcast.EpochDateTime} className="forecast">
+					<div key={fcast.DateTime} className="forecast">
 						<img src={getIcon(fcast.WeatherIcon)} alt="weather icon" />
-						<p className="hour">{hourString(fcast.EpochDateTime)}</p>
+						<p className="hour">{getTime(fcast.DateTime)}</p>
 						<p className="temperature">{Math.floor(fcast.Temperature.Value)}</p>
 					</div>
 				))}
@@ -32,12 +33,6 @@ const HourlyForecast = ({ hourlyForecast }) => {
 			</button>
 		</section>
 	);
-};
-
-const hourString = (epochTime) => {
-	// converting the epoch date retrived from api
-	const date = new Date(epochTime * 1000);
-	return `${date.getHours()}:00`;
 };
 
 export default HourlyForecast;
