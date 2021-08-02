@@ -1,4 +1,4 @@
-import { Fragment, useRef } from 'react';
+import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getTime } from '../data/time';
 import { useIntersection } from 'react-use';

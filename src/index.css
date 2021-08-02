@@ -5,6 +5,7 @@ body {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#051937), color-stop(#002d4b), color-stop(#00425a), color-stop(#005763), to(#006b67));
   background-image: linear-gradient(to bottom, #051937, #002d4b, #00425a, #005763, #006b67);
   margin: 0;
+  min-height: 100vh;
 }
 
 .temperature {
@@ -56,7 +57,7 @@ h2 {
 .search .autocomp-container {
   position: absolute;
   z-index: 10;
-  background-color: #585858;
+  background-color: rgba(0, 0, 0, 0.98);
   border-radius: 30px;
   top: 54px;
   left: 0;
@@ -160,22 +161,7 @@ h2 {
 }
 
 .hourly-forecast .scroll {
-  position: absolute;
-  height: 60px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
-  top: calc(50% + 40px);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.hourly-forecast .scroll-left {
-  left: 0;
-}
-
-.hourly-forecast .scroll-right {
-  right: 0;
+  display: none;
 }
 
 .daily-forecast {
@@ -219,6 +205,10 @@ h2 {
   margin: auto;
   padding: 20px 0;
   border-radius: 30px;
+}
+
+.sun-position h2 {
+  margin-bottom: -30px;
 }
 
 .sun-position .info .container {
@@ -273,5 +263,70 @@ h2 {
   margin-top: 10px;
   text-align: center;
   color: white;
+}
+
+@media (min-width: 1158px) {
+  .weather {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "current daily " "hourly position ";
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .current-weather {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: current;
+    width: 320px;
+    border: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
+  }
+  .daily-forecast {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: daily;
+    width: 320px;
+    border: none;
+    padding: 0;
+  }
+  .sun-position {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: position;
+    width: 320px;
+    padding: 0;
+  }
+  .hourly-forecast {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: hourly;
+    width: 300px;
+    border: none;
+    padding: 0;
+  }
+  .hourly-forecast .scroll {
+    display: block;
+    position: absolute;
+    height: 60px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    top: calc(50% + 40px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .hourly-forecast .scroll-left {
+    left: -18px;
+  }
+  .hourly-forecast .scroll-right {
+    right: -18px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

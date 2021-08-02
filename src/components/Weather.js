@@ -15,12 +15,12 @@ const Weather = () => {
 		<Fragment>
 			{loading && <div className="loading" />}
 			{dataLoaded && (
-				<Fragment>
+				<div className="weather">
 					<CurrentWeather />
 					<HourlyForecast />
 					<DailyForecast />
 					<SunPosition />
-				</Fragment>
+				</div>
 			)}
 		</Fragment>
 	);
