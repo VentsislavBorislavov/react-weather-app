@@ -241,10 +241,8 @@ h2 {
   top: calc(50% - 28px);
   border-right-color: rgba(255, 255, 255, 0.1);
   border-bottom-color: rgba(255, 255, 255, 0.1);
-  -webkit-transition: -webkit-transform 1500ms ease;
-  transition: -webkit-transform 1500ms ease;
-  transition: transform 1500ms ease;
-  transition: transform 1500ms ease, -webkit-transform 1500ms ease;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 
 .sun-position .info .sun {
