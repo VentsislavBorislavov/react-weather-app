@@ -7,6 +7,7 @@ import useDailyForecast from "./hooks/useDailyForecast";
 import useWeatherLoading from "./hooks/useWeatherLoading";
 import Search from "./components/Search";
 import Weather from "./components/Weather";
+import Footer from "./components/Footer";
 
 function App() {
   const cityInfo = useSelector((state) => state.search);
@@ -21,6 +22,7 @@ function App() {
       <Search />
       {loading && <div className="loading" />}
       {dataLoaded && <Weather />}
+      <Footer />
     </div>
   );
 }

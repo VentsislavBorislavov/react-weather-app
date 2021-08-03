@@ -5,6 +5,7 @@ $cards-color: transparent;
 @import "./hourlyForecast.scss";
 @import "./dailyForecast.scss";
 @import "./sunPosition.scss";
+@import "./footer.scss";
 body {
   font-family: "Hind Siliguri", sans-serif;
   background-image: linear-gradient(
@@ -15,8 +16,10 @@ body {
     #005763,
     #006b67
   );
+  position: relative;
   margin: 0;
-  min-height: 100vh;
+  // -30px because of the search margin which gives addition 30px to the height of body
+  min-height: calc(100vh - 30px);
 }
 
 .temperature {
