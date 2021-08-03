@@ -1,0 +1,53 @@
+.sun-position {
+  width: 90%;
+  background-color: $cards-color;
+  margin: auto;
+  padding: 20px 0;
+  border-radius: 30px;
+
+  h2 {
+    margin-bottom: -30px;
+  }
+  .info {
+    .container {
+      height: 150px;
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin: auto;
+      border-bottom: 1px solid white;
+    }
+
+    .arches {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      border: 3px solid white;
+      border-radius: 50%;
+      padding: 0px;
+      top: calc(50% - 28px);
+      border-right-color: rgba(255, 255, 255, 0.1);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      transform: rotate(-135deg);
+    }
+    .sun {
+      position: absolute;
+      color: rgb(255, 187, 0);
+      font-size: 25px;
+      top: 20px;
+      right: 14px;
+    }
+    .time {
+      width: 250px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      text-align: center;
+      color: white;
+    }
+  }
+}

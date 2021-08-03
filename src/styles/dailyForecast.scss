@@ -1,0 +1,28 @@
+.daily-forecast {
+  width: 90%;
+  background-color: $cards-color;
+  margin: 20px auto;
+  color: white;
+  padding: 20px 0;
+  border-bottom: 1px solid white;
+
+  .days {
+    width: 90%;
+    margin: auto;
+    .forecast {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+    .day-temperature {
+      span {
+        padding: 10px;
+      }
+    }
+
+    .forecast + .forecast {
+      border-top: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.hourly-forecast {
+  width: 90%;
+  background-color: $cards-color;
+  margin: 20px auto;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  border-bottom: 1px solid white;
+
+  .display-forecast {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .forecast {
+      p {
+        margin: 0;
+      }
+    }
+  }
+  .scroll {
+    display: none;
+  }
+}
