@@ -3,15 +3,18 @@ import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
 import SunPosition from "./SunPosition";
 import { useEffect } from "react";
-import gsap, { Back } from "gsap";
+import useWeatherLoading, { hasWeatherAllData } from "../hooks/weatherLoading";
+import gsap from "gsap";
 
-const Weather = () => {
+const Weather = ({ cityInfo, weather }) => {
+  const loading = useWeatherLoading(cityInfo, weather);
+
   useEffect(() => {
     const tl = gsap.timeline();
     tl.from(".current-weather", {
       opacity: 0,
       x: -100,
-      ease: Back,
+      ease: "back.out(1.3)",
       duration: 0.8,
     })
       .from(
@@ -19,7 +22,7 @@ const Weather = () => {
         {
           opacity: 0,
           x: -100,
-          ease: Back,
+          ease: "back.out(1.3)",
           duration: 0.8,
         },
         "-=0.2"
@@ -29,7 +32,7 @@ const Weather = () => {
         {
           opacity: 0,
           x: 100,
-          ease: Back,
+          ease: "back.out(1.3)",
           duration: 0.8,
         },
         "-=0.2"
@@ -39,19 +42,24 @@ const Weather = () => {
         {
           opacity: 0,
           x: 100,
-          ease: Back,
+          ease: "back.out(1.3)",
           duration: 0.8,
         },
         "-=0.2"
       );
-  }, []);
+  }, [weather]);
 
   return (
     <div className="weather">
-      <CurrentWeather />
-      <HourlyForecast />
-      <DailyForecast />
-      <SunPosition />
+      {loading && <div className="loading"></div>}
+      {hasWeatherAllData(weather) && (
+        <>
+          <CurrentWeather />
+          <HourlyForecast />
+          <DailyForecast />
+          <SunPosition />
+        </>
+      )}
     </div>
   );
 };
