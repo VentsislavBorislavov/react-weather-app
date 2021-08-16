@@ -51,7 +51,11 @@ const Weather = ({ cityInfo, weather }) => {
 
   return (
     <div className="weather">
-      {loading && <div className="loading"></div>}
+      {loading && (
+        <div className="loading">
+          <i className="fas fa-circle-notch"></i>
+        </div>
+      )}
       {hasWeatherAllData(weather) && (
         <>
           <CurrentWeather />

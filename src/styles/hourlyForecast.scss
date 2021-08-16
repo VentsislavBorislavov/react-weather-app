@@ -12,6 +12,9 @@
     display: flex;
     overflow-x: scroll;
     scroll-behavior: smooth;
+    // Remove scrollbar for firefox
+    scrollbar-width: none;
+    //Remvoe scrollbar for chromium browsers
     &::-webkit-scrollbar {
       display: none;
     }

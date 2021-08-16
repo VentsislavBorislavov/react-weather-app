@@ -1,4 +1,4 @@
-export const apiKey = "xJST2MZjQ68twPEOOo0alpJNHx0iUvGl"; //Place your accuweather api key here
+export const apiKey = ""; //Place your accuweather api key here
 export const searchQuery = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=`;
 export const weatherQuery = (cityKey) =>
   `https://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apiKey}`;
