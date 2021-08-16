@@ -8,6 +8,8 @@ const useWeatherLoading = (cityInfo, weather) => {
     const weatherLoaded = hasWeatherAllData(weather);
     if (cityLoaded && !weatherLoaded) {
       setLoading(true);
+    } else if (cityLoaded && weatherLoaded) {
+      setLoading(false);
     }
   }, [weather, cityInfo]);
   return loading;
