@@ -20,8 +20,8 @@ const Footer = () => {
         <span>Ventsislav Borislavov</span>
       </h2>
       <div className="links">
-        {links.map((l) => (
-          <a href={l.link}>
+        {links.map((l, idx) => (
+          <a key={idx} href={l.link}>
             <i className={l.className} />
           </a>
         ))}
